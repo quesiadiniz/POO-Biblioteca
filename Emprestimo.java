@@ -13,7 +13,7 @@ public class Emprestimo {
     public Emprestimo(Usuario user, Livro emprestado, LocalDate dataEmprestimo){
     
         if (emprestado.taDisponivel()== false){
-            throw new IllegalArgumentException("Livro não disponível para empréstimo.");
+            throw new IllegalArgumentException("Livro nao disponivel para emprestimo.");
         }
         if (user.emprestimosAtivos>=3){
             throw new IllegalArgumentException("Não pode pegar mais que 3 livros!");
@@ -30,7 +30,7 @@ public class Emprestimo {
 
     @Override
     public String toString() {
-        return "Empréstimo de \"" + emprestado.titulo + "\" por " + user.nome +
+        return "Empréstimo de " + emprestado.titulo + " para " + user.nome +
            " em " + dataEmprestimo + " (devolver até " + dataDevolucao + ")";
     }
 
@@ -47,12 +47,6 @@ public class Emprestimo {
         return totalMulta;
     }
 
-    public void listarEmprestimos(Usuario u){
-        System.out.println("Emprestimos Ativos de " + u.nome + ":");
-        for (Livro l : u.emprestimo){
-            if (l!=null){
-                System.out.println("- "+ l.titulo);
-            }
-        }
-    }   
+    
 }
+

@@ -7,6 +7,7 @@ public class Usuario {
     int emprestimosAtivos;
     Livro[] emprestimo = new Livro[3];
     ArrayList<Livro> historico = new ArrayList<Livro>();
+    double totalMultas;
 
     public Usuario(String nome, int matricula){
         this.nome = nome;
@@ -34,7 +35,7 @@ public class Usuario {
                 emprestimo[i]=livro;
                 historico.add(livro);
                 emprestimosAtivos++;
-                System.err.println("Livro - " + livro.titulo + "- emprestado com sucesso!");
+                System.err.println("Livro - " + livro.titulo + " - emprestado com sucesso!");
                 return;
                 }
             }
@@ -52,4 +53,20 @@ public class Usuario {
             }
         }
     }
+
+    public void listarEmprestimos(){
+        System.out.println("Emprestimos Ativos de " + nome + ":");
+        for (Livro l : emprestimo){
+            if (l!=null){
+                System.out.println("- " +  l.titulo);
+            }
+        }
+    }
+/* 
+    public void adicionarMulta() {
+        totalMultas = totalMultas + ;
+}*/
+    
+    
 }
+
